@@ -80,11 +80,25 @@
             position: fixed;
             width: 20px;
             height: 20px;
-            border: 2px solid red;
             border-radius: 50%;
             pointer-events: none;
             transform: translate(-50%, -50%);
             z-index: 10000;
+            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
+            background-size: 400% 400%;
+            animation: rainbow 2s infinite linear;
+        }
+
+        @keyframes rainbow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
     </style>
 </head>
