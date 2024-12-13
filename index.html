@@ -75,32 +75,6 @@
             font-style: italic;
         }
 
-        /* Custom Cursor */
-        .custom-cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            z-index: 10000;
-            background: linear-gradient(45deg, red, orange, yellow, green, blue, indigo, violet);
-            background-size: 400% 400%;
-            animation: rainbow 2s infinite linear;
-        }
-
-        @keyframes rainbow {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
         /* Star Effect */
         .star {
             position: absolute;
@@ -138,17 +112,9 @@
         <p>Lê Bá Sang - KaiOKid</p>
     </div>
 
-    <div class="custom-cursor" id="cursor"></div>
-
     <script>
-        // JavaScript for custom cursor
-        const cursor = document.getElementById('cursor');
-
+        // JavaScript for star effect
         document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.pageX + 'px';
-            cursor.style.top = e.pageY + 'px';
-
-            // Create star with random color when mouse moves
             const star = document.createElement('div');
             star.className = 'star';
             star.style.left = `${e.pageX}px`;
