@@ -100,6 +100,22 @@
                 background-position: 0% 50%;
             }
         }
+
+        /* Star Effect */
+        .star {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            animation: fadeOut 1s forwards;
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+                transform: scale(0);
+            }
+        }
     </style>
 </head>
 <body>
@@ -131,7 +147,24 @@
         document.addEventListener('mousemove', (e) => {
             cursor.style.left = e.pageX + 'px';
             cursor.style.top = e.pageY + 'px';
+
+            // Create star with random color when mouse moves
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = `${e.pageX}px`;
+            star.style.top = `${e.pageY}px`;
+            star.style.background = getRandomColor(); // Apply random color
+            document.body.appendChild(star);
+
+            // Remove star after 1 second
+            setTimeout(() => star.remove(), 1000);
         });
+
+        // Function to generate random color from 7 predefined colors
+        function getRandomColor() {
+            const colors = ['#FF5733', '#33FF57', '#3357FF', '#F1C40F', '#9B59B6', '#1ABC9C', '#E74C3C'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
     </script>
 </body>
 </html>
